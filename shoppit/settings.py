@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-)bxkb7%ek3yt-&sos+-5uf9srz92dwy6+9a9)w9^1+&gf9iq=k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["myshoppit-app-a5rr.onrender.com", "localhost", "127.0.01"]
 
 
 # Application definition
