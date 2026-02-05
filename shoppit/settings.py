@@ -86,7 +86,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 # For development - allow all origins (remove in production)
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Specific headers to allow
 CORS_ALLOW_HEADERS = [
