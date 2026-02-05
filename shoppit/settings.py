@@ -78,8 +78,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:5175",
-    "https://myshop-uxr0.onrender.com",  # Your deployed frontend
     "http://localhost:8000",
+    "https://myshop-uxr0.onrender.com",  # Your deployed frontend
 ]
 
 # Allow credentials (cookies, authorization headers)
