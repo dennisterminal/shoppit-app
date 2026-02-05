@@ -1,12 +1,11 @@
----
-services:
+﻿services:
   - type: web
     name: shoppit-backend
     runtime: python
     plan: free
-    region: oregon
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn shoppit.wsgi:application"
+    buildCommand: ./build.sh
+    startCommand: gunicorn shoppit.wsgi:application
+    healthCheckPath: /api/health/
     envVars:
       - key: SECRET_KEY
         generateValue: true
