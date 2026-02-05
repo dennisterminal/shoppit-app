@@ -260,6 +260,14 @@ def initiate_flutterwave_payment(request):
         traceback.print_exc()
         return Response({"error": str(e)}, status=400)
 
+@api_view(["POST"])
+def initiate_payment(request):
+    # Simple implementation for now
+    return Response({
+        "message": "PayPal payment initiated",
+        "payment_url": "https://sandbox.paypal.com/checkout",
+        "order_id": "test_order_123"
+    })
 
 @api_view(['GET', 'POST'])          # ← changed from ['POST'] only (Flutterwave redirect uses GET)
 def payment_callback(request):
