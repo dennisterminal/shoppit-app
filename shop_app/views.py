@@ -100,16 +100,25 @@ def get_cart_stat(request):
     serializer = SimpleCartSerializer(cart)
     return Response(serializer.data)
 
-
 @api_view(["GET"])
 def get_cart(request):
     cart_code = request.query_params.get("cart_code")
     if not cart_code:
         return Response({"error": "cart_code is required"}, status=400)
 
-    cart = get_object_or_404(Cart, cart_code=cart_code, paid=False)
-    serializer = CartSerializer(cart)
-    return Response(serializer.data)
+    try:
+        cart = Cart.objects.get(cart_code=cart_code, paid=False)
+        serializer = CartSerializer(cart)
+        return Response(serializer.data)
+    except Cart.DoesNotExist:
+        # Return empty cart instead of 404
+        return Response({
+            "cart_code": cart_code,
+            "paid": False,
+            "items": [],
+            "total": "0.00",
+            "message": "Cart not found, returning empty cart"
+        })
 
 
 @api_view(["PATCH"])
